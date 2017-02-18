@@ -5,3 +5,4 @@
 - Used ReLU  and sigmoid for activation
 - Used rmsprop and Adadelta for optimization
 - Achieved an accuracy of 90.2% on validation data
+- Achieved a log_loss of 0.227 on validation data
