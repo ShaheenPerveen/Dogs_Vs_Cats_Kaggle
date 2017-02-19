@@ -19,9 +19,6 @@ from keras.constraints import maxnorm
 from keras.regularizers import l2
 from random import shuffle
 
-from matplotlib import pyplot as plt
-get_ipython().magic('matplotlib inline')
-
 import cv2
 import glob
 import os
@@ -30,7 +27,7 @@ import re
 
 # In[2]:
 
-train_path = "/home/aiml_test_user/Shaheen/trainDC"
+train_path = "../Shaheen/trainDC"
 
 ROWS = 128
 COLS = 128
@@ -73,7 +70,6 @@ train1 /= 255
 
 
 ## splitting the data into train and test
-from sklearn.cross_validation import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(train1, labels, test_size=0.3)
 
 
@@ -251,7 +247,7 @@ print('Test accuracy:', validation[1])
 # In[21]:
 
 ## uploading and processing test data
-test_path = "/home/aiml_test_user/Shaheen/testDC"
+test_path = "../Shaheen/testDC"
 
 ROWS = 128
 COLS = 128
@@ -259,7 +255,7 @@ CHANNELS = 3
 
 images = [img for img in os.listdir(test_path)]
 
-files = [ os.path.join('/home/aiml_test_user/Shaheen/testDC',str(i)+'.jpg') for i in range(1,12501) ]
+files = [ os.path.join('../Shaheen/testDC',str(i)+'.jpg') for i in range(1,12501) ]
 
 
 test = np.ndarray(shape=(len(files),ROWS, COLS))
@@ -300,7 +296,6 @@ y_pred = model3.predict(test1)
 np.savetxt('submission_DogsvCatsKaggleProb.csv', np.c_[range(1,len(test1)+1),y_pred], delimiter=',', header = 'id,label', comments = '')
 
 
-# In[ ]:
 
 
 
