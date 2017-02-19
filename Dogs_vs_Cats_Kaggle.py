@@ -57,7 +57,7 @@ for i, img_path in enumerate(train_list):
 
 
 # In[4]:
-
+## changing the shape of data
 train1 = np.array(train).reshape((-1, 1, 128, 128)).astype('float32')
 
 train1.shape
@@ -266,15 +266,6 @@ for i, img_path in enumerate(images):
     
     test[i] = img
     
-    
-#for fname in files:
-    #img = cv2.imread(os.path.join(test_path, img_path), 0)
-    #img = cv2.resize(img, (ROWS, COLS), interpolation=cv2.INTER_CUBIC)
-    
-    #test[i] = img
-                     
-                     
-
 
 # In[22]:
 
