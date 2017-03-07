@@ -1,7 +1,5 @@
 
-# coding: utf-8
 
-# In[1]:
 
 import numpy as np
 import pandas as pd
@@ -24,8 +22,6 @@ import glob
 import os
 import re
 
-
-# In[2]:
 
 train_path = "../Shaheen/trainDC"
 
@@ -55,8 +51,6 @@ for i, img_path in enumerate(train_list):
     else:
         labels[i] = 0
 
-
-# In[4]:
 ## changing the shape of data
 train1 = np.array(train).reshape((-1, 1, 128, 128)).astype('float32')
 
@@ -64,9 +58,6 @@ train1.shape
 
 ## dividing by 255
 train1 /= 255
-
-
-# In[5]:
 
 
 ## splitting the data into train and test
@@ -113,7 +104,6 @@ model1.compile(loss='binary_crossentropy',
               metrics=['accuracy'])
 
 
-# In[13]:
 
 ## fitting the model
 batch_size = 32
@@ -129,7 +119,6 @@ validation = model1.evaluate(x_test, y_test, verbose=1)
 print('Test accuracy:', validation[1])
 
 
-# In[8]:
 
 img_size = 128
 
@@ -178,7 +167,6 @@ model3.compile(loss='binary_crossentropy',
               metrics=['accuracy'])
 
 
-# In[9]:
 
 ## fitting the model
 batch_size = 32
@@ -188,13 +176,9 @@ model3.fit(x_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch,
           verbose=1, validation_data=(x_test, y_test))
 
 
-# In[15]:
-
 validation = model3.evaluate(x_test, y_test, verbose=1)
 print('Test accuracy:', validation[1])
 
-
-# In[16]:
 
 ## data augmentation
 X_train, X_val, Y_train, Y_val = train_test_split(train1, labels, test_size=0.2)
@@ -219,7 +203,6 @@ datagen1 = ImageDataGenerator(rotation_range=40,
 datagen1.fit(X_train)
 
 
-# In[19]:
 
 # reinitialise the model
 
@@ -238,7 +221,6 @@ model2.fit_generator(datagen1.flow(X_train, Y_train, batch_size=batch_size),
                             validation_data=(X_val, Y_val))
 
 
-# In[20]:
 
 validation = model2.evaluate(x_test, y_test, verbose=1)
 print('Test accuracy:', validation[1])
