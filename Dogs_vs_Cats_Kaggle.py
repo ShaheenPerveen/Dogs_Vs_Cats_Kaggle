@@ -1,6 +1,4 @@
-
-
-
+## importing required lib
 import numpy as np
 import pandas as pd
 from sklearn.cross_validation import train_test_split
@@ -62,9 +60,6 @@ train1 /= 255
 
 ## splitting the data into train and test
 x_train, x_test, y_train, y_test = train_test_split(train1, labels, test_size=0.3)
-
-
-# In[12]:
 
 img_size = 128
 
