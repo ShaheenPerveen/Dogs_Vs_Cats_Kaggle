@@ -108,13 +108,13 @@ model1.fit(x_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch,
           verbose=1, validation_data=(x_test, y_test))
 
 
-# In[14]:
+#validation
 
 validation = model1.evaluate(x_test, y_test, verbose=1)
 print('Test accuracy:', validation[1])
 
 
-
+# model 2
 img_size = 128
 
 def catdog():
@@ -221,7 +221,6 @@ validation = model2.evaluate(x_test, y_test, verbose=1)
 print('Test accuracy:', validation[1])
 
 
-# In[21]:
 
 ## uploading and processing test data
 test_path = "../Shaheen/testDC"
@@ -244,7 +243,6 @@ for i, img_path in enumerate(images):
     test[i] = img
     
 
-# In[22]:
 
 test1 = np.array(test).reshape((-1, 1, 128, 128)).astype('float32')
 
@@ -255,7 +253,6 @@ test1 /= 255
 test1.shape
 
 
-# In[23]:
 
 ## predicting the test data
 y_pred = model3.predict(test1)
